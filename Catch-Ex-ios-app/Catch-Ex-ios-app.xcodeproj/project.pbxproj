@@ -16,6 +16,16 @@
 		781C2FEA29692D3C000701BC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 781C2FE929692D3C000701BC /* Then */; };
 		781C2FF429693852000701BC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 781C2FF329693852000701BC /* Moya */; };
 		781C2FF629693852000701BC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 781C2FF529693852000701BC /* RxMoya */; };
+		78BADF5329693CCA00AA4D6B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF5229693CCA00AA4D6B /* TabBarViewController.swift */; };
+		78BADF5629693D8F00AA4D6B /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF5529693D8F00AA4D6B /* Asset.swift */; };
+		78BADF5929693DE100AA4D6B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF5829693DE100AA4D6B /* NetworkService.swift */; };
+		78BADF5C29693E3400AA4D6B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF5B29693E3400AA4D6B /* UserDefaultManager.swift */; };
+		78BADF5F29693E9400AA4D6B /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 78BADF5E29693E9400AA4D6B /* RxCocoa */; };
+		78BADF6129693E9400AA4D6B /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 78BADF6029693E9400AA4D6B /* RxRelay */; };
+		78BADF6429693F0E00AA4D6B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF6329693F0E00AA4D6B /* UIImage+.swift */; };
+		78BADF6629693F2300AA4D6B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF6529693F2300AA4D6B /* UIFont+.swift */; };
+		78BADF6829693F4F00AA4D6B /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF6729693F4F00AA4D6B /* UIViewController+Rx.swift */; };
+		78BADF6A29693F5800AA4D6B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BADF6929693F5800AA4D6B /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +36,14 @@
 		781C2FDA29692C2C000701BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		781C2FDD29692C2C000701BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		781C2FDF29692C2C000701BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78BADF5229693CCA00AA4D6B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		78BADF5529693D8F00AA4D6B /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		78BADF5829693DE100AA4D6B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		78BADF5B29693E3400AA4D6B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		78BADF6329693F0E00AA4D6B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		78BADF6529693F2300AA4D6B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		78BADF6729693F4F00AA4D6B /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		78BADF6929693F5800AA4D6B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,8 +51,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78BADF6129693E9400AA4D6B /* RxRelay in Frameworks */,
 				781C2FE729692D30000701BC /* SnapKit in Frameworks */,
 				781C2FEA29692D3C000701BC /* Then in Frameworks */,
+				78BADF5F29693E9400AA4D6B /* RxCocoa in Frameworks */,
 				781C2FF629693852000701BC /* RxMoya in Frameworks */,
 				781C2FF429693852000701BC /* Moya in Frameworks */,
 			);
@@ -65,11 +85,59 @@
 				781C2FD129692C2B000701BC /* AppDelegate.swift */,
 				781C2FD329692C2B000701BC /* SceneDelegate.swift */,
 				781C2FD529692C2B000701BC /* ViewController.swift */,
+				78BADF5229693CCA00AA4D6B /* TabBarViewController.swift */,
+				78BADF6B2969403F00AA4D6B /* Models */,
+				78BADF5A29693E2200AA4D6B /* UserDefaultManager */,
+				78BADF5729693DAC00AA4D6B /* Network */,
+				78BADF5429693D8500AA4D6B /* Commons */,
+				78BADF6229693EF200AA4D6B /* Extension+ */,
 				781C2FDA29692C2C000701BC /* Assets.xcassets */,
 				781C2FDC29692C2C000701BC /* LaunchScreen.storyboard */,
 				781C2FDF29692C2C000701BC /* Info.plist */,
 			);
 			path = "Catch-Ex-ios-app";
+			sourceTree = "<group>";
+		};
+		78BADF5429693D8500AA4D6B /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				78BADF5529693D8F00AA4D6B /* Asset.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		78BADF5729693DAC00AA4D6B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				78BADF5829693DE100AA4D6B /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		78BADF5A29693E2200AA4D6B /* UserDefaultManager */ = {
+			isa = PBXGroup;
+			children = (
+				78BADF5B29693E3400AA4D6B /* UserDefaultManager.swift */,
+			);
+			path = UserDefaultManager;
+			sourceTree = "<group>";
+		};
+		78BADF6229693EF200AA4D6B /* Extension+ */ = {
+			isa = PBXGroup;
+			children = (
+				78BADF6329693F0E00AA4D6B /* UIImage+.swift */,
+				78BADF6529693F2300AA4D6B /* UIFont+.swift */,
+				78BADF6729693F4F00AA4D6B /* UIViewController+Rx.swift */,
+				78BADF6929693F5800AA4D6B /* UIColor+.swift */,
+			);
+			path = "Extension+";
+			sourceTree = "<group>";
+		};
+		78BADF6B2969403F00AA4D6B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +161,8 @@
 				781C2FE929692D3C000701BC /* Then */,
 				781C2FF329693852000701BC /* Moya */,
 				781C2FF529693852000701BC /* RxMoya */,
+				78BADF5E29693E9400AA4D6B /* RxCocoa */,
+				78BADF6029693E9400AA4D6B /* RxRelay */,
 			);
 			productName = "Catch-Ex-ios-app";
 			productReference = 781C2FCE29692C2B000701BC /* Catch-Ex-ios-app.app */;
@@ -126,6 +196,7 @@
 				781C2FE529692D30000701BC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				781C2FE829692D3C000701BC /* XCRemoteSwiftPackageReference "Then" */,
 				781C2FF229693852000701BC /* XCRemoteSwiftPackageReference "Moya" */,
+				78BADF5D29693E9400AA4D6B /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 781C2FCF29692C2B000701BC /* Products */;
 			projectDirPath = "";
@@ -153,9 +224,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78BADF6829693F4F00AA4D6B /* UIViewController+Rx.swift in Sources */,
+				78BADF5329693CCA00AA4D6B /* TabBarViewController.swift in Sources */,
+				78BADF6629693F2300AA4D6B /* UIFont+.swift in Sources */,
 				781C2FD629692C2B000701BC /* ViewController.swift in Sources */,
+				78BADF6A29693F5800AA4D6B /* UIColor+.swift in Sources */,
+				78BADF5629693D8F00AA4D6B /* Asset.swift in Sources */,
 				781C2FD229692C2B000701BC /* AppDelegate.swift in Sources */,
+				78BADF5929693DE100AA4D6B /* NetworkService.swift in Sources */,
+				78BADF6429693F0E00AA4D6B /* UIImage+.swift in Sources */,
 				781C2FD429692C2B000701BC /* SceneDelegate.swift in Sources */,
+				78BADF5C29693E3400AA4D6B /* UserDefaultManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +468,14 @@
 				kind = branch;
 			};
 		};
+		78BADF5D29693E9400AA4D6B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -411,6 +498,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 781C2FF229693852000701BC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		78BADF5E29693E9400AA4D6B /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78BADF5D29693E9400AA4D6B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		78BADF6029693E9400AA4D6B /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78BADF5D29693E9400AA4D6B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
