@@ -30,11 +30,15 @@ final class TabBarViewController: UITabBarController {
                                          title: "온보드",
                                          image: .ic_board,
                                          selectedImage: .ic_board_fill)
+    let leahVC = TabBarFactory.create(viewController: CommunityViewController(),
+                                     title: "리아",
+                                     image: .ic_board,
+                                     selectedImage: .ic_board_fill)
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        
-        viewControllers = [loginVC, homeVC, firstVC, secondVC, thirdVC]
+        tabBar.backgroundColor = .white
+        viewControllers = [leahVC]
         
     }
     

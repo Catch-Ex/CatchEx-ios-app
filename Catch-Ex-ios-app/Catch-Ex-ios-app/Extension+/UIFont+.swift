@@ -30,5 +30,8 @@ extension UIFont {
             return systemFont(ofSize: size)
         }
     }
+    static func notosans(size: CGFloat, family: FontType.Pretentdard) -> UIFont {
+        return UIFont.pretendardFont(size: size, style: family)
+    }
 }
 
