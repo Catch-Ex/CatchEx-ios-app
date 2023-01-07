@@ -6,10 +6,19 @@
 //
 
 import Foundation
+struct User: Codable {
+    var nickName: String
+    var gender: String
+    var id: String
+    var password: String
+    var phoneNumber: String
+    var loverNumber: String?
+    var loverText: String?
+}
 
 struct UserDefaultManager {
-//    @UserDefault(key: CareeixKey.UserDefaultKey.kakaoAccessToken, defaultValue: "")
-//    public static var kakaoAccessToken: String
+    @UserDefault(key: "user", defaultValue: User(nickName: "", gender: "남자", id: "0", password: "0", phoneNumber: "", loverNumber: nil, loverText: nil))
+    public static var user: User
 }
     
 

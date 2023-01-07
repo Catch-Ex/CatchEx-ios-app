@@ -11,15 +11,30 @@ final class TabBarViewController: UITabBarController {
     
     // MARK: - Properties
     let homeVC = TabBarFactory.create(viewController: ViewController(),
-                                                title: "홈",
-                                                image: .ic_board,
-                                                selectedImage: .ic_board_fill)
-
+                                      title: "홈",
+                                      image: .ic_board,
+                                      selectedImage: .ic_board_fill)
+    let loginVC = TabBarFactory.create(viewController: LoginViewController(viewModel: .init()),
+                                       title: "로그인",
+                                       image: .ic_board,
+                                       selectedImage: .ic_board_fill)
+    let firstVC = TabBarFactory.create(viewController: FirstStepViewController(),
+                                         title: "온보드1",
+                                         image: .ic_board,
+                                         selectedImage: .ic_board_fill)
+    let secondVC = TabBarFactory.create(viewController: SecondStepViewController(),
+                                         title: "온보드2",
+                                         image: .ic_board,
+                                         selectedImage: .ic_board_fill)
+    let thirdVC = TabBarFactory.create(viewController: ThirdStepViewController(),
+                                         title: "온보드",
+                                         image: .ic_board,
+                                         selectedImage: .ic_board_fill)
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         
-        viewControllers = [homeVC, homeVC, homeVC, homeVC, homeVC, homeVC, homeVC, homeVC, homeVC]
+        viewControllers = [loginVC, homeVC, firstVC, secondVC, thirdVC]
         
     }
     

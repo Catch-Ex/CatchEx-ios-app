@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78057959296943DC00AC72F4 /* CatchEx_ios_key.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78057958296943DC00AC72F4 /* CatchEx_ios_key.framework */; };
+		7805795C296978D200AC72F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805795B296978D200AC72F4 /* LoginViewController.swift */; };
+		7805795F29698AE000AC72F4 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805795E29698AE000AC72F4 /* BaseTextField.swift */; };
+		7805796129698AFF00AC72F4 /* SimpleInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805796029698AFF00AC72F4 /* SimpleInputView.swift */; };
+		7805796329698B5B00AC72F4 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805796229698B5B00AC72F4 /* UITextField+.swift */; };
+		780579652969927A00AC72F4 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780579642969927A00AC72F4 /* WarningView.swift */; };
+		780579742969A69D00AC72F4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780579732969A69D00AC72F4 /* SignUpViewController.swift */; };
+		780579772969AEF200AC72F4 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780579762969AEF200AC72F4 /* OnboardViewController.swift */; };
+		780579802969BF9A00AC72F4 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 780579782969BF9900AC72F4 /* Pretendard-ExtraLight.otf */; };
+		780579812969BF9A00AC72F4 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 780579792969BF9900AC72F4 /* Pretendard-SemiBold.otf */; };
+		780579822969BF9A00AC72F4 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7805797A2969BF9A00AC72F4 /* Pretendard-Thin.otf */; };
+		780579832969BF9A00AC72F4 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7805797B2969BF9A00AC72F4 /* Pretendard-Regular.otf */; };
+		780579842969BF9A00AC72F4 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7805797C2969BF9A00AC72F4 /* Pretendard-Medium.otf */; };
+		780579852969BF9A00AC72F4 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7805797D2969BF9A00AC72F4 /* Pretendard-Light.otf */; };
+		780579862969BF9A00AC72F4 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7805797E2969BF9A00AC72F4 /* Pretendard-ExtraBold.otf */; };
+		780579872969BF9A00AC72F4 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7805797F2969BF9A00AC72F4 /* Pretendard-Bold.otf */; };
+		7805798A2969CE1A00AC72F4 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 780579892969CE1A00AC72F4 /* RxKeyboard */; };
+		7805798C2969DF7200AC72F4 /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805798B2969DF7200AC72F4 /* BaseTextView.swift */; };
+		7805798F2969EA3E00AC72F4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 7805798E2969EA3E00AC72F4 /* RxGesture */; };
 		781C2FD229692C2B000701BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C2FD129692C2B000701BC /* AppDelegate.swift */; };
 		781C2FD429692C2B000701BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C2FD329692C2B000701BC /* SceneDelegate.swift */; };
 		781C2FD629692C2B000701BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C2FD529692C2B000701BC /* ViewController.swift */; };
@@ -29,6 +48,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78057958296943DC00AC72F4 /* CatchEx_ios_key.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CatchEx_ios_key.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7805795B296978D200AC72F4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7805795E29698AE000AC72F4 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		7805796029698AFF00AC72F4 /* SimpleInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleInputView.swift; sourceTree = "<group>"; };
+		7805796229698B5B00AC72F4 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		780579642969927A00AC72F4 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		780579732969A69D00AC72F4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		780579762969AEF200AC72F4 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		780579782969BF9900AC72F4 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		780579792969BF9900AC72F4 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		7805797A2969BF9A00AC72F4 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		7805797B2969BF9A00AC72F4 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		7805797C2969BF9A00AC72F4 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		7805797D2969BF9A00AC72F4 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		7805797E2969BF9A00AC72F4 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		7805797F2969BF9A00AC72F4 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		7805798B2969DF7200AC72F4 /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
 		781C2FCE29692C2B000701BC /* Catch-Ex-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Catch-Ex-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		781C2FD129692C2B000701BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		781C2FD329692C2B000701BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,10 +87,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78057959296943DC00AC72F4 /* CatchEx_ios_key.framework in Frameworks */,
+				7805798F2969EA3E00AC72F4 /* RxGesture in Frameworks */,
 				78BADF6129693E9400AA4D6B /* RxRelay in Frameworks */,
 				781C2FE729692D30000701BC /* SnapKit in Frameworks */,
 				781C2FEA29692D3C000701BC /* Then in Frameworks */,
 				78BADF5F29693E9400AA4D6B /* RxCocoa in Frameworks */,
+				7805798A2969CE1A00AC72F4 /* RxKeyboard in Frameworks */,
 				781C2FF629693852000701BC /* RxMoya in Frameworks */,
 				781C2FF429693852000701BC /* Moya in Frameworks */,
 			);
@@ -63,11 +102,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78057957296943DC00AC72F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78057958296943DC00AC72F4 /* CatchEx_ios_key.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7805795A296978C900AC72F4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7805795D296989F300AC72F4 /* InputView */,
+				7805795B296978D200AC72F4 /* LoginViewController.swift */,
+				780579642969927A00AC72F4 /* WarningView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7805795D296989F300AC72F4 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				7805795E29698AE000AC72F4 /* BaseTextField.swift */,
+				7805796029698AFF00AC72F4 /* SimpleInputView.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		780579682969A18300AC72F4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				780579692969A18900AC72F4 /* Pretendard-Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		780579692969A18900AC72F4 /* Pretendard-Font */ = {
+			isa = PBXGroup;
+			children = (
+				7805797F2969BF9A00AC72F4 /* Pretendard-Bold.otf */,
+				7805797E2969BF9A00AC72F4 /* Pretendard-ExtraBold.otf */,
+				780579782969BF9900AC72F4 /* Pretendard-ExtraLight.otf */,
+				7805797D2969BF9A00AC72F4 /* Pretendard-Light.otf */,
+				7805797C2969BF9A00AC72F4 /* Pretendard-Medium.otf */,
+				7805797B2969BF9A00AC72F4 /* Pretendard-Regular.otf */,
+				780579792969BF9900AC72F4 /* Pretendard-SemiBold.otf */,
+				7805797A2969BF9A00AC72F4 /* Pretendard-Thin.otf */,
+			);
+			path = "Pretendard-Font";
+			sourceTree = "<group>";
+		};
+		780579722969A68F00AC72F4 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				780579732969A69D00AC72F4 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		780579752969ADBD00AC72F4 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				780579762969AEF200AC72F4 /* OnboardViewController.swift */,
+				7805798B2969DF7200AC72F4 /* BaseTextView.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
 		781C2FC529692C2B000701BC = {
 			isa = PBXGroup;
 			children = (
 				781C2FD029692C2B000701BC /* Catch-Ex-ios-app */,
 				781C2FCF29692C2B000701BC /* Products */,
+				78057957296943DC00AC72F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +189,10 @@
 		781C2FD029692C2B000701BC /* Catch-Ex-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				780579752969ADBD00AC72F4 /* Onboard */,
+				780579722969A68F00AC72F4 /* SignUp */,
+				780579682969A18300AC72F4 /* Resource */,
+				7805795A296978C900AC72F4 /* Login */,
 				781C2FD129692C2B000701BC /* AppDelegate.swift */,
 				781C2FD329692C2B000701BC /* SceneDelegate.swift */,
 				781C2FD529692C2B000701BC /* ViewController.swift */,
@@ -129,6 +240,7 @@
 				78BADF6529693F2300AA4D6B /* UIFont+.swift */,
 				78BADF6729693F4F00AA4D6B /* UIViewController+Rx.swift */,
 				78BADF6929693F5800AA4D6B /* UIColor+.swift */,
+				7805796229698B5B00AC72F4 /* UITextField+.swift */,
 			);
 			path = "Extension+";
 			sourceTree = "<group>";
@@ -163,6 +275,8 @@
 				781C2FF529693852000701BC /* RxMoya */,
 				78BADF5E29693E9400AA4D6B /* RxCocoa */,
 				78BADF6029693E9400AA4D6B /* RxRelay */,
+				780579892969CE1A00AC72F4 /* RxKeyboard */,
+				7805798E2969EA3E00AC72F4 /* RxGesture */,
 			);
 			productName = "Catch-Ex-ios-app";
 			productReference = 781C2FCE29692C2B000701BC /* Catch-Ex-ios-app.app */;
@@ -197,6 +311,8 @@
 				781C2FE829692D3C000701BC /* XCRemoteSwiftPackageReference "Then" */,
 				781C2FF229693852000701BC /* XCRemoteSwiftPackageReference "Moya" */,
 				78BADF5D29693E9400AA4D6B /* XCRemoteSwiftPackageReference "RxSwift" */,
+				780579882969CE1A00AC72F4 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				7805798D2969EA3E00AC72F4 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = 781C2FCF29692C2B000701BC /* Products */;
 			projectDirPath = "";
@@ -212,8 +328,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				780579842969BF9A00AC72F4 /* Pretendard-Medium.otf in Resources */,
+				780579872969BF9A00AC72F4 /* Pretendard-Bold.otf in Resources */,
+				780579852969BF9A00AC72F4 /* Pretendard-Light.otf in Resources */,
+				780579862969BF9A00AC72F4 /* Pretendard-ExtraBold.otf in Resources */,
+				780579802969BF9A00AC72F4 /* Pretendard-ExtraLight.otf in Resources */,
+				780579832969BF9A00AC72F4 /* Pretendard-Regular.otf in Resources */,
+				780579822969BF9A00AC72F4 /* Pretendard-Thin.otf in Resources */,
 				781C2FDE29692C2C000701BC /* LaunchScreen.storyboard in Resources */,
 				781C2FDB29692C2C000701BC /* Assets.xcassets in Resources */,
+				780579812969BF9A00AC72F4 /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,15 +348,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7805795C296978D200AC72F4 /* LoginViewController.swift in Sources */,
 				78BADF6829693F4F00AA4D6B /* UIViewController+Rx.swift in Sources */,
 				78BADF5329693CCA00AA4D6B /* TabBarViewController.swift in Sources */,
+				7805798C2969DF7200AC72F4 /* BaseTextView.swift in Sources */,
 				78BADF6629693F2300AA4D6B /* UIFont+.swift in Sources */,
+				7805795F29698AE000AC72F4 /* BaseTextField.swift in Sources */,
+				780579742969A69D00AC72F4 /* SignUpViewController.swift in Sources */,
 				781C2FD629692C2B000701BC /* ViewController.swift in Sources */,
 				78BADF6A29693F5800AA4D6B /* UIColor+.swift in Sources */,
 				78BADF5629693D8F00AA4D6B /* Asset.swift in Sources */,
+				7805796129698AFF00AC72F4 /* SimpleInputView.swift in Sources */,
 				781C2FD229692C2B000701BC /* AppDelegate.swift in Sources */,
 				78BADF5929693DE100AA4D6B /* NetworkService.swift in Sources */,
+				7805796329698B5B00AC72F4 /* UITextField+.swift in Sources */,
 				78BADF6429693F0E00AA4D6B /* UIImage+.swift in Sources */,
+				780579772969AEF200AC72F4 /* OnboardViewController.swift in Sources */,
+				780579652969927A00AC72F4 /* WarningView.swift in Sources */,
 				781C2FD429692C2B000701BC /* SceneDelegate.swift in Sources */,
 				78BADF5C29693E3400AA4D6B /* UserDefaultManager.swift in Sources */,
 			);
@@ -444,6 +576,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		780579882969CE1A00AC72F4 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		7805798D2969EA3E00AC72F4 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		781C2FE529692D30000701BC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -479,6 +627,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		780579892969CE1A00AC72F4 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 780579882969CE1A00AC72F4 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
+		};
+		7805798E2969EA3E00AC72F4 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7805798D2969EA3E00AC72F4 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		781C2FE629692D30000701BC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 781C2FE529692D30000701BC /* XCRemoteSwiftPackageReference "SnapKit" */;

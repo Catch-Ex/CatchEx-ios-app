@@ -10,12 +10,34 @@ import UIKit
 
 extension UIColor {
     enum AssetsColor {
-        case main
+        case primary
+        case gray1
+        case gray2
+        case gray3
+        case gray4
+        case line
+        case disable
+        case 빈인풋
     }
     static func appColor(_ name: AssetsColor) -> UIColor {
         switch name {
-        case .main:
-            return .init(hex: "FFFFFFFF")!
+        case .primary:
+            return .init(hex: "#8071FCFF")!
+        case .gray1:
+            return .init(hex: "#C5C6CAFF")!
+        case .gray2:
+            return .init(hex: "#999999FF")!
+        case .gray3:
+            return .init(hex: "#606060FF")!
+        case .gray4:
+            return .init(hex: "#303030FF")!
+        case .line:
+            return .init(hex: "#8071FCFF")!
+        case .disable:
+            return .init(hex: "#D5D6DAFF")!
+        case .빈인풋:
+            return .init(hex: "#CCCCCCFF")!
+            
         }
     }
     convenience init(red: Int, green: Int, blue: Int, a: Int = 0xFF) {
