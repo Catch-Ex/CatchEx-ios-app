@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../CatchEx-ios-key/CatchEx-ios-key/CatchEx-ios-key.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Catch-Ex-ios-app/Catch-Ex-ios-app.xcodeproj">
    </FileRef>
 </Workspace>
