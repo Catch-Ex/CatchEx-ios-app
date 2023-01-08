@@ -15,9 +15,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUI()
-        testButton.rx.tap
+        mentLabel.rx.tapGesture()
+            .when(.recognized)
             .bind(with: self) { owner, _ in
                 let vc = OneButtonAlertViewController(viewModel: .init(content: "매칭을 축하합니다!", buttonText: "확인", textColor: .appColor(.primary)))
+                owner.present(vc, animated: true)
                 owner.heartArrowImageView.image = UIImage(named: "heartArrow_fill")
                 owner.toImageView.image = UIImage(named: "matching")
                 if let v = owner.toDateView.subviews.first as? UIImageView {
@@ -185,10 +187,10 @@ class HomeViewController: UIViewController {
             
         }
         
-        testButton.snp.makeConstraints {
-            $0.centerY.equalTo(mentLabel)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.width.equalTo(80)
-        }
+//        testButton.snp.makeConstraints {
+//            $0.centerY.equalTo(mentLabel)
+//            $0.trailing.equalToSuperview().inset(20)
+//            $0.width.equalTo(80)
+//        }
     }
 }
