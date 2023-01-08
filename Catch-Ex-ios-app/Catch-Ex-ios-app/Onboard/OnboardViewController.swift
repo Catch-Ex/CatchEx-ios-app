@@ -22,7 +22,7 @@ class BaseStepViewController: UIViewController {
     }
     func baseBind() {
         RxKeyboard.instance.visibleHeight
-            .skip(1)    // 초기 값 버리기
+            .skip(2)    // 초기 값 버리기
             .drive(with: self) { owner, keyboardVisibleHeight in
                 owner.updateView(with: keyboardVisibleHeight)
             }.disposed(by: disposeBag)
@@ -400,6 +400,24 @@ class SecondStepViewController: BaseStepViewController {
 }
 
 class ThirdStepViewController: BaseStepViewController {
+    func bind() {
+        let numberInput = numberInputView.textField.viewModel.inputStringRelay
+        let textInput = textView.viewModel.inputStringRelay
+        
+        Observable.combineLatest(numberInput, textInput)
+            .bind { [weak self] number, text in
+                let valid = !number.isEmpty && !textInput.value.isEmpty
+                self?.completeButton.isUserInteractionEnabled = valid
+                self?.completeButton.backgroundColor = valid ? .appColor(.primary) : .appColor(.빈인풋)
+            }.disposed(by: disposeBag)
+        
+        completeButton.rx.tap
+            .bind(with: self) { owner, _ in
+                let vc = TabBarViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                owner.present(vc, animated: false)
+            }.disposed(by: disposeBag)
+    }
     override init() {
         super.init()
         thirdStepView.backgroundColor = .appColor(.primary)
@@ -407,6 +425,7 @@ class ThirdStepViewController: BaseStepViewController {
         stepsecondLineView.backgroundColor = .appColor(.primary)
         stepfirstLineView.backgroundColor = .appColor(.primary)
         setUI()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -419,6 +438,7 @@ class ThirdStepViewController: BaseStepViewController {
     let contentView = UIView()
     let skipButton: UILabel = {
         $0.text = "Skip"
+        $0.textColor = .appColor(.gray5)
         return $0
     }(UILabel())
     let titleLabel: UILabel = {
@@ -467,7 +487,7 @@ class ThirdStepViewController: BaseStepViewController {
         skipButton.snp.makeConstraints {
             $0.top.equalTo(textView.snp.bottom).offset(150)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(50)
+            $0.bottom.equalToSuperview().inset(70)
         }
         numberInputView.textField.keyboardType = .numberPad
     }

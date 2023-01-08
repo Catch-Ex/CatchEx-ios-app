@@ -18,6 +18,7 @@ extension UIColor {
         case line
         case disable
         case 빈인풋
+        case gray5
     }
     static func appColor(_ name: AssetsColor) -> UIColor {
         switch name {
@@ -37,6 +38,8 @@ extension UIColor {
             return .init(hex: "#D5D6DAFF")!
         case .빈인풋:
             return .init(hex: "#CCCCCCFF")!
+        case .gray5:
+            return .init(hex: "#909090FF")!
             
         }
     }
