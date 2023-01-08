@@ -11,6 +11,15 @@ import Then
 
 class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    // Tabbar 가리기
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nil, bundle: nil)
+        hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     @IBOutlet weak var sendViewBottomMargin: NSLayoutConstraint!
     
     let mainView = CommentView()
@@ -19,11 +28,11 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    var commentProfileImageArr: [String] = ["profile", "profile", "profile", "profile", "profile"]
-    var commentNicknameArr: [String] = ["아라아라", "아라아라", "아라아라", "아라아라", "아라아라"]
-    var commentDateArr: [String] = ["2023년 1월 7일", "2023년 1월 7일", "2023년 1월 7일", "2023년 1월 7일", "2023년 1월 7일"]
+    var commentProfileImageArr: [String] = ["profile", "profile"]
+    var commentNicknameArr: [String] = ["피터피터", "샤인샤인"]
+    var commentDateArr: [String] = ["2023년 1월 7일", "2023년 1월 7일"]
 
-    var commentContentArr: [String] = ["내용1", "내용2", "내용3", "내용4", "내용5"]
+    var commentContentArr: [String] = ["ㄴㄴ 그냥 설정했을 듯.", "조만간 매칭 된다에 내 머리카락 걸겠음"]
     
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 0
@@ -49,8 +58,14 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         $0.tintColor = .black
     }
     
+    let commentImageView = UIImageView().then {
+        $0.image = UIImage(named: "comment_button")
+//        $0.contentMode = .scaleAspectFill
+    }
+    
     lazy var commentBtn = UIButton().then {
-        $0.setImage(UIImage(named: "comment_button"), for: .normal)
+        $0.backgroundColor = .clear
+        $0.addTarget(self, action: #selector(commentBtnDidTap), for: .touchUpInside)
     }
     
     var nickname = ""
@@ -62,7 +77,7 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.view.backgroundColor = .white
         
         contentView.nicknameLbl.text = nickname
@@ -156,7 +171,8 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         self.view.addSubview(contentView)
         self.view.addSubview(commentTextField)
-        self.commentTextField.addSubview(commentBtn)
+        self.commentTextField.addSubview(commentImageView)
+        self.commentImageView.addSubview(commentBtn)
         
         commentTextField.addLeftPadding()
         
@@ -168,8 +184,7 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
-        mainView.tableView.separatorStyle = .none
-        
+        mainView.tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
         }
     
     func setUpConstraints() {
@@ -179,19 +194,28 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
         
         mainView.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.bottom).offset(0)
-            $0.bottom.equalTo(commentTextField.snp.top).offset(0)
+            $0.top.equalTo(contentView.snp.bottom)
+            $0.bottom.equalTo(commentTextField.snp.top)
             $0.leading.trailing.equalToSuperview()
         }
         
         commentTextField.snp.makeConstraints{ (make) in
             make.bottom.equalTo(-50)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
+            make.height.equalTo(Constant.height * 40)
+        }
+        
+        commentImageView.snp.makeConstraints{ make in
+            make.top.bottom.equalToSuperview().inset(Constant.height*4)
+            make.trailing.equalToSuperview().inset(Constant.width*4)
+            make.width.equalTo(Constant.width * 42)
+            
         }
         
         commentBtn.snp.makeConstraints{ make in
-            make.top.bottom.trailing.equalToSuperview().inset(4)
+            make.top.bottom.equalToSuperview().inset(Constant.height*4)
+            make.trailing.equalToSuperview().inset(Constant.width*4)
+            make.width.equalTo(Constant.width * 42)
         }
     }
     
@@ -199,6 +223,9 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         // 이전 화면으로 이동
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func commentBtnDidTap() {
     }
     
     // MARK: 텍스트필드 커스텀

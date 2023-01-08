@@ -129,7 +129,7 @@ class CommunityTableViewCell: UITableViewCell {
         profileImageBtn.snp.makeConstraints { make in
             make.top.equalTo(28)
             make.leading.equalTo(20)
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(Constant.height * 40)
         }
         
         nicknameLbl.snp.makeConstraints { make in

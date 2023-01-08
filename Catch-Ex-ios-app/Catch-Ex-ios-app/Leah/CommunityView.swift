@@ -16,7 +16,7 @@ class CommunityView: UIView {
         $0.showsVerticalScrollIndicator = false
 //        $0.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
 //        $0.backgroundColor = .blue
-    
+        
         $0.register(CommunityTableViewCell.self, forCellReuseIdentifier: CommunityTableViewCell.cellIdentifier)
     }
 

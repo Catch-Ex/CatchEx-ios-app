@@ -62,8 +62,6 @@ class CommentTableViewCell: UITableViewCell {
     func setUpConstraint() {
         
         baseView.snp.makeConstraints{ make in
-//            make.top.bottomMargin.equalToSuperview()
-            
             make.top.bottom.equalToSuperview().inset(8)
             make.leading.trailing.equalToSuperview().inset(12)
         }
@@ -71,7 +69,7 @@ class CommentTableViewCell: UITableViewCell {
         commentProfileImageBtn.snp.makeConstraints { make in
             make.top.equalTo(28)
             make.leading.equalTo(20)
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(Constant.height * 40)
         }
         
         commentNicknameLbl.snp.makeConstraints { make in
@@ -88,7 +86,7 @@ class CommentTableViewCell: UITableViewCell {
             make.top.equalTo(commentProfileImageBtn.snp.bottom).offset(16)
             make.leading.equalTo(commentProfileImageBtn)
             make.trailing.equalToSuperview().inset(100)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(28)
         }
     }
 }

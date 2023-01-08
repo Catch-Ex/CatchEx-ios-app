@@ -13,20 +13,20 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
 
     let placeholderContent = "내용 입력"
     
-    lazy var offBtn = UIButton().then {
-        $0.setImage(UIImage(systemName: "multiply"), for: .normal)
-        $0.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 23, weight: .medium), forImageIn: .normal)
-        $0.tintColor = .black
-        $0.addTarget(self, action: #selector(offBtnDidTap), for: .touchUpInside)
-    }
+//    lazy var offBtn = UIButton().then {
+//        $0.setImage(UIImage(systemName: "multiply"), for: .normal)
+//        $0.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 23, weight: .medium), forImageIn: .normal)
+//        $0.tintColor = .black
+//        $0.addTarget(self, action: #selector(offBtnDidTap), for: .touchUpInside)
+//    }
     
-    lazy var postBtn = UIButton().then {
-        $0.setTitle("완료", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-        $0.titleLabel?.font = UIFont.notosans(size: 20, family: .regular)
-        $0.addTarget(self, action: #selector(postBtnDidTap), for: .touchUpInside)
-        $0.setTitleColor(.systemGray, for: .highlighted)
-    }
+//    lazy var postBtn = UIButton().then {
+//        $0.setTitle("완료", for: .normal)
+//        $0.setTitleColor(.black, for: .normal)
+//        $0.titleLabel?.font = UIFont.notosans(size: 20, family: .regular)
+//        $0.addTarget(self, action: #selector(postBtnDidTap), for: .touchUpInside)
+//        $0.setTitleColor(.systemGray, for: .highlighted)
+//    }
     
     let titleTextField = UITextField().then {
         $0.font = UIFont.notosans(size: 20, family: .regular)
@@ -57,9 +57,7 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
                 
         titleTextField.delegate = self
         contentTextView.delegate = self
-        
-        customPostBtn()
-        
+                
         titleTextField.addLeftPadding()
         
         textFieldDidBeginEditing(titleTextField)
@@ -86,35 +84,24 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     }
     
     func setUpView() {
-        self.view.addSubview(offBtn)
-        self.view.addSubview(postBtn)
         self.view.addSubview(titleTextField)
         self.view.addSubview(contentTextView)
         self.view.addSubview(titleBorderView)
     }
     
     func setUpConstraints() {
-        offBtn.snp.makeConstraints{ (make) in
-            make.top.equalToSuperview().offset(60)
-            make.leading.equalToSuperview().offset(30)
-        }
-        
-        postBtn.snp.makeConstraints{ (make) in
-            make.centerY.equalTo(offBtn)
-            make.trailing.equalToSuperview().offset(-30)
-        }
         
         titleTextField.snp.makeConstraints{ (make) in
             make.top.equalTo(134)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(48)
+            make.height.equalTo(Constant.height * 48)
         }
         
         contentTextView.snp.makeConstraints{ (make) in
             make.top.equalTo(titleTextField.snp.bottom).offset(24)
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(281)
+            make.height.equalTo(Constant.height * 281)
         }
 
         titleBorderView.snp.makeConstraints { make in
@@ -136,13 +123,6 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
             return false
         }
     }
-    
-    func customPostBtn() {
-        if isEmptyOrNot() == true {
-            postBtn.titleLabel?.textColor = .systemGray
-        } else { postBtn.titleLabel?.textColor = .systemRed }
-    }
-    
     
     // MARK: 텍스트필드 커스텀
     @objc func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -192,17 +172,6 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         // 텍스트뷰 입력 시 테두리 생기게 하기
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1).cgColor
-    }
-
-    // MARK: 버튼 액션 적용
-    @objc func offBtnDidTap(_ sender: UIButton) {
-        
-        // 이전 화면으로 이동
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func postBtnDidTap(_ sender: UIButton) {
-        
     }
 }
 

@@ -18,7 +18,7 @@ class CommunityDetailView: UIView {
     let nicknameLbl = UILabel().then {
         $0.text = "닉네임"
         $0.textColor = UIColor(red: 0.188, green: 0.188, blue: 0.188, alpha: 1)
-        $0.font = UIFont.pretendardFont(size: 14, style: .bold)
+        $0.font = UIFont.pretendardFont(size: 14, style: .semiBold)
     }
     
     let dateLbl = UILabel().then {
@@ -30,7 +30,7 @@ class CommunityDetailView: UIView {
     let titleLbl = UILabel().then {
         $0.text = "제목"
         $0.textColor = UIColor(red: 0.188, green: 0.188, blue: 0.188, alpha: 1)
-        $0.font = UIFont.pretendardFont(size: 14, style: .bold)
+        $0.font = UIFont.pretendardFont(size: 14, style: .semiBold)
     }
     
     let contentLbl = UILabel().then {
@@ -66,13 +66,22 @@ class CommunityDetailView: UIView {
     
     let commentImageView = UIImageView().then {
         $0.image = UIImage(named: "comment")
-        
     }
     
     let countCommentLbl = UILabel().then {
         $0.text = "00"
         $0.textColor = UIColor(red: 0.376, green: 0.376, blue: 0.376, alpha: 1)
         $0.font = UIFont.pretendardFont(size: 12, style: .regular)
+    }
+    
+    let borderView = UIView().then {
+        $0.backgroundColor = UIColor(red: 0.961, green: 0.965, blue: 0.98, alpha: 1)
+    }
+    
+    let countCommentBigLbl = UILabel().then {
+        $0.text = "댓글 2개"
+        $0.textColor = UIColor(red: 0.188, green: 0.188, blue: 0.188, alpha: 1)
+        $0.font = UIFont.pretendardFont(size: 16, style: .semiBold)
     }
     
     override init(frame: CGRect) {
@@ -100,6 +109,8 @@ class CommunityDetailView: UIView {
         addSubview(countHeartLbl)
         addSubview(commentImageView)
         addSubview(countCommentLbl)
+        addSubview(borderView)
+        addSubview(countCommentBigLbl)
         
         heartBtn.addTarget(self, action: #selector(toggleHeart), for: .touchUpInside)
     }
@@ -109,7 +120,7 @@ class CommunityDetailView: UIView {
         profileImageBtn.snp.makeConstraints { make in
             make.top.equalTo(28)
             make.leading.equalTo(20)
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(Constant.height * 40)
         }
         
         nicknameLbl.snp.makeConstraints { make in
@@ -153,6 +164,17 @@ class CommunityDetailView: UIView {
         countCommentLbl.snp.makeConstraints { make in
             make.centerY.equalTo(commentImageView)
             make.leading.equalTo(commentImageView.snp.trailing).offset(5)
+        }
+        
+        borderView.snp.makeConstraints { make in
+            make.top.equalTo(countCommentLbl.snp.bottom).offset(31)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(Constant.height * 8)
+        }
+        
+        countCommentBigLbl.snp.makeConstraints { make in
+            make.top.equalTo(borderView.snp.bottom).offset(28)
+            make.leading.equalToSuperview().offset(20)
         }
     }
 }

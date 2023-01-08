@@ -23,12 +23,13 @@ class CommunitySearchBarView: UIView, UITextFieldDelegate, UITextViewDelegate {
         $0.setImage(UIImage(named: "search"), for: .normal)
         $0.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .regular), forImageIn: .normal)
         $0.tintColor = .black
+        $0.addTarget(self, action: #selector(searchBtnDidTap), for: .touchUpInside)
     }
     
     lazy var firstViewBtn = UIButton().then {
         $0.setTitle("인기", for: .normal)
         $0.setTitleColor(UIColor(red: 0.502, green: 0.443, blue: 0.988, alpha: 1), for: .normal)
-        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .regular)
+        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .semiBold)
         $0.backgroundColor = UIColor(red: 0.941, green: 0.933, blue: 1, alpha: 1)
         $0.layer.borderColor = UIColor(red: 0.502, green: 0.443, blue: 0.988, alpha: 1).cgColor
         $0.layer.borderWidth = 1
@@ -38,7 +39,7 @@ class CommunitySearchBarView: UIView, UITextFieldDelegate, UITextViewDelegate {
     lazy var secondViewBtn = UIButton().then {
         $0.setTitle("이별", for: .normal)
         $0.setTitleColor(UIColor(red: 0.773, green: 0.776, blue: 0.792, alpha: 1), for: .normal)
-        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .regular)
+        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .semiBold)
         $0.backgroundColor = .white
         $0.layer.borderColor = UIColor(red: 0.773, green: 0.776, blue: 0.792, alpha: 1).cgColor
         $0.layer.borderWidth = 1
@@ -48,7 +49,7 @@ class CommunitySearchBarView: UIView, UITextFieldDelegate, UITextViewDelegate {
     lazy var thirdViewBtn = UIButton().then {
         $0.setTitle("19금", for: .normal)
         $0.setTitleColor(UIColor(red: 0.773, green: 0.776, blue: 0.792, alpha: 1), for: .normal)
-        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .regular)
+        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .semiBold)
         $0.backgroundColor = .white
         $0.layer.borderColor = UIColor(red: 0.773, green: 0.776, blue: 0.792, alpha: 1).cgColor
         $0.layer.borderWidth = 1
@@ -58,7 +59,7 @@ class CommunitySearchBarView: UIView, UITextFieldDelegate, UITextViewDelegate {
     lazy var fourthViewBtn = UIButton().then {
         $0.setTitle("꿀팁", for: .normal)
         $0.setTitleColor(UIColor(red: 0.773, green: 0.776, blue: 0.792, alpha: 1), for: .normal)
-        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .regular)
+        $0.titleLabel?.font = UIFont.notosans(size: 16, family: .semiBold)
         $0.backgroundColor = .white
         $0.layer.borderColor = UIColor(red: 0.773, green: 0.776, blue: 0.792, alpha: 1).cgColor
         $0.layer.borderWidth = 1
@@ -116,8 +117,8 @@ class CommunitySearchBarView: UIView, UITextFieldDelegate, UITextViewDelegate {
         firstViewBtn.snp.makeConstraints { make in
             make.left.equalTo(searchTextField.snp.left)
             make.top.equalTo(searchTextField.snp.bottom).offset(16)
-            make.height.equalTo(26)
-            make.width.equalTo(60)
+            make.height.equalTo(Constant.height * 26)
+            make.width.equalTo(Constant.width * 60)
             make.bottom.equalTo(-16)
         }
         
@@ -159,6 +160,9 @@ class CommunitySearchBarView: UIView, UITextFieldDelegate, UITextViewDelegate {
             string: "검색어를 입력해주세요",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.754, green: 0.754, blue: 0.754, alpha: 1)]
         )
+    }
+    
+    @objc private func searchBtnDidTap() {
     }
 }
 
