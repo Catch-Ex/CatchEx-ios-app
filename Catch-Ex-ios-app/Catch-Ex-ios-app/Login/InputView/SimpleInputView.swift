@@ -28,7 +28,7 @@ class SimpleInputView: UIView {
         textField.rx.controlEvent(.editingDidBegin)
             .asDriver()
             .drive(with: self) { owner, _ in
-                owner.textField.layer.borderColor = UIColor.black.cgColor
+                owner.textField.layer.borderColor = UIColor.appColor(.primary).cgColor
             }.disposed(by: disposeBag)
        
         textField.rx.controlEvent(.editingDidEnd)

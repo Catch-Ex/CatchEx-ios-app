@@ -8,6 +8,7 @@
 import Foundation
 
 enum Asset: String {
-    case ic_board
-    case ic_board_fill
+    case home
+    case community
+    case my
 }

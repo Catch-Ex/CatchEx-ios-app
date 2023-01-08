@@ -111,7 +111,9 @@ class SignUpViewController: UIViewController {
             .bind(with: self) { owner, data in
                 UserDefaultManager.user.id = data.0
                 UserDefaultManager.user.password = data.1
-                owner.navigationController?.pushViewController(SignUpViewController2(), animated: true)
+                let vc = SignUpViewController2()
+                
+                owner.navigationController?.pushViewController(vc, animated: true)
             }.disposed(by: disposeBag)
     }
     
@@ -127,7 +129,7 @@ class SignUpViewController: UIViewController {
             )
         }
         UIView.animate(withDuration: 0.4) {
-            self.view.layoutIfNeeded()
+//            self.view.layoutIfNeeded()
         }
     }
     let scrollView = UIScrollView()
@@ -185,6 +187,7 @@ class SignUpViewController: UIViewController {
     }
 }
 class 인증View: UIView {
+    var disposeBag = DisposeBag()
     init(title: String, placeholder: String, completeButtonText: String) {
         titleLabel.text = title
         textfield = SimpleInputView(viewModel: .init(textFieldViewModel: .init(placeholder: placeholder)))
@@ -192,6 +195,7 @@ class 인증View: UIView {
         confirmButton.setTitle(completeButtonText, for: .normal)
         bind()
         setUI()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -208,6 +212,7 @@ class 인증View: UIView {
     let confirmButton: UIButton = {
         $0.backgroundColor = .appColor(.빈인풋)
         $0.layer.cornerRadius = 8
+        $0.titleLabel?.font = .pretendardFont(size: 16, style: .regular)
         return $0
     }(UIButton())
     
@@ -233,16 +238,49 @@ class 인증View: UIView {
     }
     
     func bind() {
-        
+        textfield.textField.viewModel.inputStringRelay
+            .bind(with: self) { owner, string in
+                let valid = !string.isEmpty
+                owner.confirmButton.isUserInteractionEnabled = valid
+                owner.confirmButton.backgroundColor = valid ? .appColor(.primary) : .appColor(.빈인풋)
+            }.disposed(by: disposeBag)
     }
 }
 class SignUpViewController2: UIViewController {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nil, bundle: nil)
+        setUI()
+        
+        view.backgroundColor = .white
+        bind()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     var disposeBag = DisposeBag()
     func bind() {
         RxKeyboard.instance.visibleHeight
-            .skip(1)    // 초기 값 버리기
+            .skip(2)    // 초기 값 버리기
             .drive(with: self) { owner, keyboardVisibleHeight in
+                print("Asd")
                 owner.updateView(with: keyboardVisibleHeight)
+            }.disposed(by: disposeBag)
+        
+        phoneInput.confirmButton.rx.tap
+            .bind(with: self) { owner, _ in
+                let vc = OneButtonAlertViewController(viewModel: .init(content: "임시 인증번호!\n 0000", buttonText: "확인", textColor: .appColor(.primary)))
+                owner.present(vc, animated: false)
+            }.disposed(by: disposeBag)
+        codeInput.confirmButton.rx.tap
+            .bind(with: self) { owner, _ in
+                let vc = OneButtonAlertViewController(viewModel: .init(content: "인증 완료!", buttonText: "확인", textColor: .appColor(.primary)))
+                owner.present(vc, animated: false)
+                owner.completeButton.isUserInteractionEnabled = true
+                owner.completeButton.backgroundColor = .appColor(.primary)
+            }.disposed(by: disposeBag)
+        completeButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(FirstStepViewController(), animated: true)
             }.disposed(by: disposeBag)
     }
     
@@ -258,12 +296,11 @@ class SignUpViewController2: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "회원가입"
-        setUI()
-        bind()
-        view.backgroundColor = .white
+
     }
     let phoneInput = 인증View(title: "휴대폰 번호", placeholder: "휴대폰 번호 입력", completeButtonText: "인증요청")
     let codeInput = 인증View(title: "인증번호", placeholder: "인증번호 입력", completeButtonText: "확인")
@@ -284,7 +321,7 @@ class SignUpViewController2: UIViewController {
             $0.leading.trailing.equalToSuperview()
         }
         completeButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(56)
         }

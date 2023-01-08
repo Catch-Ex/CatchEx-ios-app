@@ -10,36 +10,22 @@ import UIKit
 final class TabBarViewController: UITabBarController {
     
     // MARK: - Properties
-    let homeVC = TabBarFactory.create(viewController: ViewController(),
+    let homeVC = TabBarFactory.create(viewController: HomeViewController(),
                                       title: "홈",
-                                      image: .ic_board,
-                                      selectedImage: .ic_board_fill)
-    let loginVC = TabBarFactory.create(viewController: LoginViewController(viewModel: .init()),
-                                       title: "로그인",
-                                       image: .ic_board,
-                                       selectedImage: .ic_board_fill)
-    let firstVC = TabBarFactory.create(viewController: FirstStepViewController(),
-                                         title: "온보드1",
-                                         image: .ic_board,
-                                         selectedImage: .ic_board_fill)
-    let secondVC = TabBarFactory.create(viewController: SecondStepViewController(),
-                                         title: "온보드2",
-                                         image: .ic_board,
-                                         selectedImage: .ic_board_fill)
-    let thirdVC = TabBarFactory.create(viewController: ThirdStepViewController(),
-                                         title: "온보드",
-                                         image: .ic_board,
-                                         selectedImage: .ic_board_fill)
+                                      image: .home)
+    let temp = TabBarFactory.create(viewController: ViewController(),
+                                         title: "내정보",
+                                         image: .my)
     let leahVC = TabBarFactory.create(viewController: CommunityViewController(),
-                                     title: "리아",
-                                     image: .ic_board,
-                                     selectedImage: .ic_board_fill)
+                                     title: "커뮤니티",
+                                     image: .community)
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         tabBar.backgroundColor = .white
-        viewControllers = [leahVC]
-        
+        viewControllers = [homeVC, leahVC, temp]
+        delegate = self
+        tabBar.tintColor = .appColor(.primary)
     }
     
 }
@@ -48,12 +34,22 @@ struct TabBarFactory {
     static func create(viewController: UIViewController,
                        title: String,
                        image: Asset,
-                       selectedImage: Asset) -> UINavigationController {
+                       selectedImage: Asset? = nil) -> UINavigationController {
         
         viewController.tabBarItem = UITabBarItem(title: title,
                                                  image: UIImage(image) ?? UIImage(systemName: "trash"),
-                                                 selectedImage: UIImage(selectedImage) ?? UIImage(systemName: "trash"))
+                                                 tag: 1)
         
         return UINavigationController(rootViewController: viewController)
+    }
+}
+
+extension TabBarViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if let vc = viewController as? UINavigationController, let _ = vc.viewControllers[0] as? ViewController {
+            present(OneButtonAlertViewController(viewModel: .init(content: "준비중입니다!", buttonText: "확인", textColor: .appColor(.primary))), animated: true)
+            return false
+        }
+        return true
     }
 }
