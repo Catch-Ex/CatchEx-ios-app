@@ -91,6 +91,7 @@ class DetailPostViewController: UIViewController, UITextFieldDelegate, UITextVie
         setUpConstraints()
         
         initNotification()
+        setupNavigationBackButton()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

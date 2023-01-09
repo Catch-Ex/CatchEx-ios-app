@@ -32,6 +32,7 @@ class BaseStepViewController: UIViewController {
         
         view.backgroundColor = .white
         firstStepView.backgroundColor = .appColor(.primary)
+        setupNavigationBackButton()
     }
     let completeButton: UIButton = {
         $0.setTitle("다음", for: .normal)
@@ -144,11 +145,14 @@ class FirstStepViewController: BaseStepViewController {
     }
     
     func bind() {
+        let nicknameInput = nickNameInputView.textField.viewModel.inputStringRelay
         completeButton.rx.tap
-            .bind(with: self) { owner, _ in
+            .withLatestFrom(nicknameInput)
+            .bind(with: self) { owner, string in
+                UserDefaultManager.user.nickName = string
                 owner.navigationController?.pushViewController(SecondStepViewController(), animated: false)
             }.disposed(by: disposeBag)
-        let nicknameInput = nickNameInputView.textField.viewModel.inputStringRelay
+        
         nicknameInput
             .bind(with: self) { owner, string in
                 let isEmpty = string.isEmpty
@@ -181,7 +185,7 @@ class FirstStepViewController: BaseStepViewController {
     }(UILabel())
     let nickNameLabel: UILabel = {
         $0.text = "닉네임"
-        $0.font = .pretendardFont(size: 14, style: .bold)
+        $0.font = .pretendardFont(size: 14, style: .semiBold)
         return $0
     }(UILabel())
     let nickNameInputView = SimpleInputView(viewModel: .init(textFieldViewModel: .init(placeholder: "8자 이내 한글 혹은 영문")))
@@ -192,7 +196,7 @@ class FirstStepViewController: BaseStepViewController {
         $0.titleLabel?.font = .pretendardFont(size: 16, style: .regular)
         return $0
     }(UIButton())
-    let validNickNameView = WarningView(image: UIImage(systemName: "trash"), text: "사용 가능한 닉네임입니다.", color: .appColor(.primary))
+    let validNickNameView = WarningView(image: UIImage(named: "confirm"), text: "사용 가능한 닉네임입니다.", color: .appColor(.primary))
     let invalidNickNameView = WarningView(image: UIImage(named: "warning_stroke"), text: "사용할 수 없는 닉네임입니다.", color: .red)
     
     func setUI() {
@@ -269,22 +273,22 @@ class SecondStepViewController: BaseStepViewController {
         switch type {
         case .man:
             manView.layer.borderColor = UIColor.appColor(.primary).cgColor
-            manImageView.tintColor = .appColor(.primary)
+            manImageView.image = UIImage(named: "man_fill")
             manLabel.textColor = .appColor(.primary)
             manView.backgroundColor = .init(hex: "#F0EEFFFF")
             
             womanView.layer.borderColor = UIColor(hex: "#EDEDEDFF")?.cgColor
-            womanImageView.tintColor = UIColor(hex: "#C5C6CAFF")
+            womanImageView.image = UIImage(named: "woman")
             womanLabel.textColor = UIColor(hex: "#C5C6CAFF")
             womanView.backgroundColor = .white
         case .woman:
             womanView.layer.borderColor = UIColor.appColor(.primary).cgColor
-            womanImageView.tintColor = .appColor(.primary)
+            womanImageView.image = UIImage(named: "woman_fill")
             womanLabel.textColor = .appColor(.primary)
             womanView.backgroundColor = .init(hex: "#F0EEFFFF")
             
             manView.layer.borderColor = UIColor(hex: "#EDEDEDFF")?.cgColor
-            manImageView.tintColor = UIColor(hex: "#C5C6CAFF")
+            manImageView.image = UIImage(named: "man")
             manLabel.textColor = UIColor(hex: "#C5C6CAFF")
             manView.backgroundColor = .white
         }
@@ -319,11 +323,12 @@ class SecondStepViewController: BaseStepViewController {
         return $0
     }(UIView())
     let manImageView: UIImageView = {
-        $0.image = UIImage(systemName: "trash")
+        $0.image = UIImage(named: "man")
         return $0
     }(UIImageView())
     let manLabel: UILabel = {
         $0.text = GenderSelection.man.asString()
+        $0.font = .pretendardFont(size: 20, style: .semiBold)
         return $0
     }(UILabel())
     
@@ -334,11 +339,12 @@ class SecondStepViewController: BaseStepViewController {
         return $0
     }(UIView())
     let womanImageView: UIImageView = {
-        $0.image = UIImage(systemName: "trash")
+        $0.image = UIImage(named: "woman")
         return $0
     }(UIImageView())
     let womanLabel: UILabel = {
         $0.text = GenderSelection.woman.asString()
+        $0.font = .pretendardFont(size: 20, style: .semiBold)
         return $0
     }(UILabel())
     
@@ -413,6 +419,8 @@ class ThirdStepViewController: BaseStepViewController {
         
         completeButton.rx.tap
             .bind(with: self) { owner, _ in
+                UserDefaultManager.user.phoneNumber = owner.numberInputView.textField.text ?? ""
+                UserDefaultManager.user.loverText = owner.textView.text
                 let vc = TabBarViewController()
                 vc.modalPresentationStyle = .overFullScreen
                 owner.present(vc, animated: false)
@@ -448,7 +456,7 @@ class ThirdStepViewController: BaseStepViewController {
         return $0
     }(UILabel())
     let numberLabel: UILabel = {
-        $0.font = .pretendardFont(size: 14, style: .bold)
+        $0.font = .pretendardFont(size: 14, style: .semiBold)
         $0.text = "휴대폰 번호"
         return $0
     }(UILabel())

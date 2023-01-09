@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CommunityViewController: UIViewController {
+class CommunityViewController: UIViewController, AddPost {
     
     let mainView = CommunityView()
     
@@ -27,6 +27,18 @@ class CommunityViewController: UIViewController {
     var countHeartArr: [String] = ["2", "2", "3", "4", "5"]
     
     var countCommentArr: [String] = ["52", "52", "3", "4", "5"]
+    
+    func update(title: String, content: String) {
+        profileImageArr.insert("profile", at: 0)
+        nicknameArr.insert(UserDefaultManager.user.nickName, at: 0)
+        dateArr.insert("2023년 1월 8일", at: 0)
+        titleArr.insert(title, at: 0)
+        contentArr.insert(content, at: 0)
+        countHeartArr.insert("0", at: 0)
+        countCommentArr.insert("0", at: 0)
+        
+        mainView.tableView.reloadData()
+    }
     
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 0
@@ -46,6 +58,7 @@ class CommunityViewController: UIViewController {
         
         setUpView()
         setUpConstraints()
+        setupNavigationBackButton(UIImage(named: "logo"))
     }
     
     func setUpView() {
@@ -86,6 +99,7 @@ class CommunityViewController: UIViewController {
         
         // WritePost 화면으로 이동
         let WritePostViewController = WritePostViewController()
+        WritePostViewController.delegate = self
         WritePostViewController.modalTransitionStyle = .crossDissolve
         WritePostViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(WritePostViewController, animated: true)

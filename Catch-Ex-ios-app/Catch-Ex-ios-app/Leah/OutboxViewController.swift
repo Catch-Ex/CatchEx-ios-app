@@ -33,12 +33,7 @@ class OutboxViewController: UIViewController {
         self.view.backgroundColor = .white
         title = "쪽지함"
         
-        let navBackImage = UIImage(named: "arrow_left")
-        self.navigationController?.navigationBar.backIndicatorImage = navBackImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = navBackImage
-        
-        /*** If needed Assign Title Here ***/
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        setupNavigationBackButton()
         
 //        let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 //        backButton.tintColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
@@ -88,7 +83,7 @@ class OutboxViewController: UIViewController {
         let inboxViewController = InboxViewController()
         inboxViewController.modalTransitionStyle = .crossDissolve
         inboxViewController.modalPresentationStyle = .fullScreen
-        self.present(inboxViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(inboxViewController, animated: false)
     }
 
     

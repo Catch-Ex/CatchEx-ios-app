@@ -63,22 +63,27 @@ class LoginViewController: UIViewController {
     // MARK: - UIComponents
     let scrollView = UIScrollView()
     let contentView = UIView()
-    let appNameLabel: UILabel = {
-        $0.text = "Ja-ba"
-        $0.font = .pretendardFont(size: 40, style: .bold)
-        $0.textColor = .appColor(.primary)
+    let appNameLabel: UIImageView = {
+        $0.image = UIImage(named: "logo")
         return $0
-    }(UILabel())
+    }(UIImageView())
     
-    let descriptionLabel: UILabel = {
-        $0.text = "자꾸만 생각나는 그 사람,\n혹시 그 사람도 날?"
+    
+    let descriptionLabel1: UILabel = {
+        $0.text = "자꾸만 생각나는 그 사람,"
         $0.textAlignment = .center
-        $0.numberOfLines = 0
         $0.font = .pretendardFont(size: 16, style: .regular)
         $0.textColor = .appColor(.gray3)
         return $0
     }(UILabel())
-    
+    let descriptionLabel2: UILabel = {
+        $0.text = "혹시 그 사람도 날?"
+        $0.textAlignment = .center
+        $0.numberOfLines = 0
+        $0.font = .pretendardFont(size: 16, style: .semiBold)
+        $0.textColor = .appColor(.gray3)
+        return $0
+    }(UILabel())
     let emailInputView = SimpleInputView(viewModel: .init(textFieldViewModel: .init(placeholder: "아이디")))
     let passwordInputView = SimpleInputView(viewModel: .init(textFieldViewModel: .init(placeholder: "비밀번호")))
     let completeButton: UIButton = {
@@ -135,20 +140,25 @@ extension LoginViewController {
             $0.width.equalToSuperview()
         }
         
-        [appNameLabel, descriptionLabel, emailInputView, passwordInputView, warningView, completeButton, optionView].forEach { contentView.addSubview($0) }
+        [appNameLabel, descriptionLabel1,descriptionLabel2, emailInputView, passwordInputView, warningView, completeButton, optionView].forEach { contentView.addSubview($0) }
         
         appNameLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(120 / view.frame.height * 812)
+//            $0.height.equalTo(40)
+//            $0.width.equalTo(146)
         }
         
-        descriptionLabel.snp.makeConstraints {
+        descriptionLabel1.snp.makeConstraints {
             $0.top.equalTo(appNameLabel.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
         }
-        
+        descriptionLabel2.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel1.snp.bottom).offset(5)
+            $0.centerX.equalToSuperview()
+        }
         emailInputView.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(48)
+            $0.top.equalTo(descriptionLabel2.snp.bottom).offset(48)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         

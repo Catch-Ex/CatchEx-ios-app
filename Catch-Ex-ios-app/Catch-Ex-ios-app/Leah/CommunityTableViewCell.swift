@@ -59,8 +59,10 @@ class CommunityTableViewCell: UITableViewCell {
         sender.isSelected.toggle()
         if sender.isSelected{
             sender.setImage(UIImage(named: "heart_fill"), for: .selected)
+            countHeartLbl.text = "\(Int(countHeartLbl.text!)! + 1)"
         }else{
             sender.setImage(UIImage(named: "heart_empty"), for: .normal)
+            countHeartLbl.text = "\(Int(countHeartLbl.text!)! - 1)"
         }
 //        print("좋아요")
 //        DispatchQueue.main.async {

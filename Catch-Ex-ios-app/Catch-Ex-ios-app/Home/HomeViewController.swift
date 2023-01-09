@@ -25,20 +25,31 @@ class HomeViewController: UIViewController {
                 if let v = owner.toDateView.subviews.first as? UIImageView {
                     v.image = UIImage(named: "toDate")
                 }
+                let nickName = UserDefaultManager.user.nickName
+                owner.mentLabel.text = "\(nickName)님의 그 사람도\n\(nickName)을 기다렸어요."
                 owner.toDateView.backgroundColor = .init(hex: "#F0EEFFFF")
                 owner.toDateView.layer.borderColor = UIColor.appColor(.primary).cgColor
                 owner.toDateView.layer.borderWidth = 1
             }.disposed(by: disposeBag)
+        mailBoxButton.rx.tap
+            .bind(with: self) { owner, _ in
+                let vc = UINavigationController(rootViewController: InboxViewController())
+//                let vc = InboxViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                owner.present(vc, animated: false)
+            }.disposed(by: disposeBag)
+        
+        setupNavigationBackButton(UIImage(named: "logo"))
     }
     let dateLabel: UILabel = {
-        $0.text = "2023년 1월 28일 오늘,"
+        $0.text = "2023년 1월 8일 오늘,"
         $0.textColor = .appColor(.gray3)
         return $0
     }(UILabel())
     let mentLabel: UILabel = {
         let nickName = UserDefaultManager.user.nickName
-        $0.font = .pretendardFont(size: 24, style: .bold)
-        $0.text = "\(nickName)님의 그 사람을\n\(nickName)님을 기다린 시간이에요."
+        $0.font = .pretendardFont(size: 24, style: .semiBold)
+        $0.text = "\(nickName)님이 그 사람을\n기다린 시간이에요."
         $0.numberOfLines = 0
         return $0
     }(UILabel())

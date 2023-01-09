@@ -46,3 +46,39 @@ public extension Reactive where Base: UIViewController {
         return ControlEvent(events: source)
     }
 }
+
+extension UIViewController {
+
+    func setupNavigationBackButton(_ sender: UIImage? = nil) {
+       
+        
+        if sender == nil {
+            let backButtonSpacer = UIBarButtonItem()
+            backButtonSpacer.width = -28
+            let backButton = UIBarButtonItem(image: UIImage(named: "arrow_left")?.withRenderingMode(.alwaysOriginal),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(didTapBackButton))
+            navigationItem.setLeftBarButtonItems([backButtonSpacer, backButton], animated: false)
+        } else {
+            let senderImageItem = UIBarButtonItem(image: sender?.resize(newWidth: 73).withTintColor(.appColor(.primary), renderingMode: .alwaysOriginal),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(didTapBackButton))
+            
+            navigationItem.setLeftBarButtonItems([senderImageItem], animated: false)
+        }
+                
+    }
+    
+    @objc
+    func didTapBackButton() {
+        if self is InboxViewController || self is OutboxViewController {
+            dismiss(animated: false)
+            return
+        } else {
+            navigationController?.popViewController(animated: false)
+            tabBarController?.selectedIndex = 0
+        }
+    }
+}

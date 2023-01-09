@@ -21,7 +21,7 @@ class IDInputView: UIView {
 
     let titleLabel: UILabel = {
         $0.text = "아이디"
-        $0.font = .pretendardFont(size: 14, style: .bold)
+        $0.font = .pretendardFont(size: 14, style: .semiBold)
         return $0
     }(UILabel())
     let textfield = SimpleInputView(viewModel: .init(textFieldViewModel: .init(placeholder: "아이디를 입력해주세요.")))
@@ -49,7 +49,7 @@ class PasswordInputView: UIView {
     
     let titleLabel: UILabel = {
         $0.text = "비밀번호"
-        $0.font = .pretendardFont(size: 14, style: .bold)
+        $0.font = .pretendardFont(size: 14, style: .semiBold)
         return $0
     }(UILabel())
     let passwordTextfield = SimpleInputView(viewModel: .init(textFieldViewModel: .init(placeholder: "영문, 숫자, 특수문자 조합 8자리 이상")))
@@ -147,6 +147,7 @@ class SignUpViewController: UIViewController {
         bind()
         passwordInputView.passwordConfirmTextField.textField.isSecureTextEntry = true
         passwordInputView.passwordTextfield.textField.isSecureTextEntry = true
+        setupNavigationBackButton()
     }
     let completeButton: UIButton = {
         $0.setTitle("다음", for: .normal)
@@ -203,7 +204,7 @@ class 인증View: UIView {
     }
     
     let titleLabel: UILabel = {
-        $0.font = .pretendardFont(size: 14, style: .bold)
+        $0.font = .pretendardFont(size: 14, style: .semiBold)
         $0.textColor = .init(hex: "#303030FF")
         return $0
     }(UILabel())
@@ -257,6 +258,7 @@ class SignUpViewController2: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     var disposeBag = DisposeBag()
     func bind() {
         RxKeyboard.instance.visibleHeight
@@ -300,6 +302,7 @@ class SignUpViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "회원가입"
+        setupNavigationBackButton()
 
     }
     let phoneInput = 인증View(title: "휴대폰 번호", placeholder: "휴대폰 번호 입력", completeButtonText: "인증요청")
@@ -327,3 +330,5 @@ class SignUpViewController2: UIViewController {
         }
     }
 }
+
+
